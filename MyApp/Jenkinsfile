@@ -1,0 +1,40 @@
+pipeline {
+  agent any
+    stages {
+        stage('Pull') {
+             steps{
+                script{
+                    checkout([$class: 'GitSCM', branches: [[name: '*/main']],
+                        userRemoteConfigs: [[
+                            credentialsId: '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',
+                            url: 'https://github.com/mahdichaffai/CD.git']]])
+                }
+            }
+        }
+        /*
+        stage('Install') {
+             steps{
+                script{
+                    sh "sudo npm install"
+                }
+            }
+        }
+        
+        stage('Build') {
+             steps{
+                script{
+                    sh " ansible-playbook MyApp/ansible/build.yml -i MyApp/ansible/inventory/host.yml"
+                }
+            }
+        }
+        */
+        stage('Docker'){
+            steps{
+                script{
+                    sh "ansible-playbook MyApp/ansbile/docker.yml -i MyApp/ansible/inventory/host.yml"
+                }
+            }
+        }
+        
+        }
+        }
