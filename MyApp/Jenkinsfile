@@ -19,19 +19,19 @@ pipeline {
                 }
             }
         }
-        
+        */
         stage('Build') {
              steps{
                 script{
-                    sh " ansible-playbook MyApp/ansible/build.yml -i MyApp/ansible/inventory/host.yml"
+                    sh " ansible-playbook ansible/build.yml -i MyApp/ansible/inventory/host.yml"
                 }
             }
         }
-        */
+        
         stage('Docker'){
             steps{
                 script{
-                    sh "ansible-playbook ansbile/docker.yml -i ansible/inventory/host.yml"
+                    sh "ansible-playbook ansbile/docker.yml -i MyApp/ansible/inventory/host.yml"
                 }
             }
         }
