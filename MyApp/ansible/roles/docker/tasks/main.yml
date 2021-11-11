@@ -2,9 +2,9 @@
 # tasks file for docker
 - name: create image docker 
   docker_image:
-    name: devops
+    name: Pipeline3
     build: 
-     path: /var/lib/jenkins/workspace/devops
+     path: /var/lib/jenkins/workspace/PipeLine3
      pull: no
      source: build 
      state: present
