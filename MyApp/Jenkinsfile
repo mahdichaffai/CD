@@ -31,7 +31,7 @@ pipeline {
         stage('Docker'){
             steps{
                 script{
-                    sh "ansible-playbook MyApp/ansbile/docker.yml -i MyApp/ansible/inventory/host.yml"
+                    sh "ansible-playbook ansbile/docker.yml -i ansible/inventory/host.yml"
                 }
             }
         }
