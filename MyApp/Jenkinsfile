@@ -19,7 +19,7 @@ pipeline {
                 }
             }
         }
-        
+        */
         stage('Build') {
              steps{
                 script{
@@ -27,7 +27,7 @@ pipeline {
                 }
             }
         }
-        */
+        
         stage('Docker'){
             steps{
                 script{
